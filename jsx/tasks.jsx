@@ -37,11 +37,18 @@
   });
 
   views.Task = React.createBackboneClass({
+    destroy: function() {
+      this.props.model.destroy();
+    },
+
     render: function() {
       var d = this.props.model.toJSON()
       return (
         <div className="task item" {...this.props}>
           <span>{d.name}</span>
+          <views.DeleteButton
+            confirm="This will delete all milestones for this task."
+            onDelete={this.destroy}/>
           <views.Progress percent={d.percent_complete}/>
         </div>
       );

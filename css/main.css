@@ -99,6 +99,12 @@ nav .breadcrumbs a:hover {
 .progress {
   float: right;
 }
+.delete-btn {
+  float: right;
+  margin-left: 10px;
+  font-size: 12px;
+  color: #FFA3A3;
+}
 .fa-toggle-on,
 .fa-toggle-off {
   color: #456;

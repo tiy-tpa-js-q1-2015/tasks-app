@@ -65,9 +65,32 @@
     }
   });
 
+  var DeleteButton = React.createClass({
+    onClick: function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if(this.props.confirm) {
+        confirmed = confirm(this.props.confirm);
+        if(!confirmed) {
+          return;
+        }
+      }
+      this.props.onDelete();
+    },
+
+    render: function() {
+      return (
+        <div className="delete-btn" onClick={this.onClick}>
+          <Icon fa="remove"/>
+        </div>
+      );
+    }
+  });
+
   views.Icon = Icon;
   views.Toggle = Toggle;
   views.Progress = Progress;
   views.BreadCrumbs = BreadCrumbs;
+  views.DeleteButton = DeleteButton;
 
 })(tiy.views);

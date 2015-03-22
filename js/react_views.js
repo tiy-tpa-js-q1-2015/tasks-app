@@ -131,10 +131,33 @@
     }
   });
 
+  var DeleteButton = React.createClass({displayName: "DeleteButton",
+    onClick: function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if(this.props.confirm) {
+        confirmed = confirm(this.props.confirm);
+        if(!confirmed) {
+          return;
+        }
+      }
+      this.props.onDelete();
+    },
+
+    render: function() {
+      return (
+        React.createElement("div", {className: "delete-btn", onClick: this.onClick}, 
+          React.createElement(Icon, {fa: "remove"})
+        )
+      );
+    }
+  });
+
   views.Icon = Icon;
   views.Toggle = Toggle;
   views.Progress = Progress;
   views.BreadCrumbs = BreadCrumbs;
+  views.DeleteButton = DeleteButton;
 
 })(tiy.views);
 
@@ -177,11 +200,18 @@
   });
 
   views.Task = React.createBackboneClass({
+    destroy: function() {
+      this.props.model.destroy();
+    },
+
     render: function() {
       var d = this.props.model.toJSON()
       return (
         React.createElement("div", React.__spread({className: "task item"},  this.props), 
           React.createElement("span", null, d.name), 
+          React.createElement(views.DeleteButton, {
+            confirm: "This will delete all milestones for this task.", 
+            onDelete: this.destroy}), 
           React.createElement(views.Progress, {percent: d.percent_complete})
         )
       );
