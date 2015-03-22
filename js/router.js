@@ -10,7 +10,7 @@ tiy.Router = Backbone.Router.extend({
 
     this.header = React.render(
       React.createElement(
-        tiy.views.TwitterLogin,
+        tiy.views.Header,
         {model: tiy.currentUser}
       ),
       $("header").get(0)

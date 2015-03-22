@@ -9,6 +9,13 @@ header {
   background: #123;
   text-align: right;
 }
+header .logo {
+  font-family: Playball;
+  color: #f0f6f9;
+  font-size: 38px;
+  float: left;
+  margin: 0 20px;
+}
 nav .breadcrumbs {
   margin: 50px 100px 10px;
 }

@@ -48,6 +48,18 @@
 
   });
 
+  var Header = React.createBackboneClass({
+    render: function() {
+      return (
+        <div>
+          <div className="logo">Taskify</div>
+          <TwitterLogin model={this.props.model}/>
+        </div>
+      );
+    }
+  });
+
   views.TwitterLogin = TwitterLogin;
+  views.Header = Header;
 
 })(tiy.views);
