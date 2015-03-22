@@ -1,11 +1,20 @@
 (function(views){
 
   views.AddForm = React.createClass({
+    getInitialState: function() {
+      return {name: ""};
+    },
+
+    updateName: function(e) {
+      this.setState({name: e.target.value});
+    },
+
     onSubmit: function(e) {
       e.preventDefault();
       var form = this.getDOMNode();
       var data = $(form).serializeJSON();
       this.props.onAdd(data);
+      this.setState({name: ""});
     },
 
     render: function() {
@@ -16,6 +25,8 @@
           <input
             type="text"
             name="name"
+            value={this.state.name}
+            onChange={this.updateName}
             placeholder={placeholder}/>
         </form>
       );
