@@ -163,6 +163,28 @@
 
 (function(views){
 
+  views.AddForm = React.createClass({displayName: "AddForm",
+    onSubmit: function(e) {
+      e.preventDefault();
+      var form = this.getDOMNode();
+      var data = $(form).serializeJSON();
+      this.props.onAdd(data);
+    },
+
+    render: function() {
+      var adding = this.props.adding;
+      var placeholder = "Add a " + adding;
+      return (
+        React.createElement("form", {onSubmit: this.onSubmit}, 
+          React.createElement("input", {
+            type: "text", 
+            name: "name", 
+            placeholder: placeholder})
+        )
+      );
+    }
+  });
+
   views.Milestone = React.createBackboneClass({
     toggleComplete: function() {
       this.props.model.toggleComplete();
@@ -232,6 +254,10 @@
       );
     },
 
+    add: function(data) {
+      this.props.collection.add(data);
+    },
+
     render: function() {
       return (
         React.createElement("div", {className: "tasks list"}, 
@@ -240,6 +266,9 @@
           ), 
           React.createElement("div", {className: "items"}, 
              this.props.collection.map(this.getItem, this) 
+          ), 
+          React.createElement("div", {className: "add-item"}, 
+            React.createElement(views.AddForm, {adding: "Task", onAdd: this.add})
           )
         )
       );
