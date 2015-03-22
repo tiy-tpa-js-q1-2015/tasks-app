@@ -44,6 +44,9 @@
     getItem: function(model, index) {
       return <views.Milestone model={model} key={index}/>
     },
+    add: function(data) {
+      this.props.collection.add(data);
+    },
     render: function() {
       return (
         <div className="milestones list">
@@ -52,6 +55,9 @@
           </div>
           <div className="items">
             { this.props.collection.map(this.getItem) }
+          </div>
+          <div className="add-item">
+            <views.AddForm adding="Milestone" onAdd={this.add}/>
           </div>
         </div>
       );

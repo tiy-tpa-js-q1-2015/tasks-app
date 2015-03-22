@@ -207,6 +207,9 @@
     getItem: function(model, index) {
       return React.createElement(views.Milestone, {model: model, key: index})
     },
+    add: function(data) {
+      this.props.collection.add(data);
+    },
     render: function() {
       return (
         React.createElement("div", {className: "milestones list"}, 
@@ -215,6 +218,9 @@
           ), 
           React.createElement("div", {className: "items"}, 
              this.props.collection.map(this.getItem) 
+          ), 
+          React.createElement("div", {className: "add-item"}, 
+            React.createElement(views.AddForm, {adding: "Milestone", onAdd: this.add})
           )
         )
       );
