@@ -42,7 +42,7 @@
       var d = this.props.model.toJSON();
       return (
         <div className="milestone item">
-          <span>{d.name}</span>
+          <span className="item-title">{d.name}</span>
           <views.Toggle
             on={!!d.completed_at}
             onToggle={this.toggleComplete}/>
@@ -84,7 +84,7 @@
       var d = this.props.model.toJSON()
       return (
         <div className="task item" {...this.props}>
-          <span>{d.name}</span>
+          <span className="item-title">{d.name}</span>
           <views.DeleteButton
             confirm="This will delete all milestones for this task."
             onDelete={this.destroy}/>

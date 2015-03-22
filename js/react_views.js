@@ -205,7 +205,7 @@
       var d = this.props.model.toJSON();
       return (
         React.createElement("div", {className: "milestone item"}, 
-          React.createElement("span", null, d.name), 
+          React.createElement("span", {className: "item-title"}, d.name), 
           React.createElement(views.Toggle, {
             on: !!d.completed_at, 
             onToggle: this.toggleComplete})
@@ -247,7 +247,7 @@
       var d = this.props.model.toJSON()
       return (
         React.createElement("div", React.__spread({className: "task item"},  this.props), 
-          React.createElement("span", null, d.name), 
+          React.createElement("span", {className: "item-title"}, d.name), 
           React.createElement(views.DeleteButton, {
             confirm: "This will delete all milestones for this task.", 
             onDelete: this.destroy}), 

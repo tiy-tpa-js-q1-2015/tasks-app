@@ -80,18 +80,28 @@ nav {
   border-radius: 3px;
   box-shadow: 0px 0px 1px black;
   position: relative;
+  min-width: 350px;
   h2 {
     text-align: center;
   }
   .item {
     padding: 10px 20px;
     border-bottom: 1px solid #f0f9ff;
+    overflow: hidden;
     &:last-child {
       border-bottom: none;
     }
     &.task:hover {
       background: #f0f6f9;
       cursor: pointer;
+    }
+    .item-title {
+      width: calc(~"100% - 150px");
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      float: left;
     }
   }
   .add-item form{
