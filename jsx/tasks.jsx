@@ -83,7 +83,7 @@
     render: function() {
       var d = this.props.model.toJSON()
       return (
-        <div className="task item" {...this.props}>
+        <div className="task item" onClick={this.props.onClick}>
           <span className="item-title">{d.name}</span>
           <views.DeleteButton
             confirm="This will delete all milestones for this task."

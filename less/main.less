@@ -92,9 +92,11 @@ nav {
     &:last-child {
       border-bottom: none;
     }
-    &.task:hover {
-      background: #f0f6f9;
+    &.task{
       cursor: pointer;
+      &:hover {
+        background: #f0f6f9;
+      }
     }
     .item-title {
       width: calc(~"100% - 150px");
@@ -144,6 +146,10 @@ nav {
 
 .toggle, .progress {
   float: right;
+}
+
+.toggle {
+  cursor: pointer;
 }
 
 .delete-btn {

@@ -5,6 +5,14 @@
   box-shadow: none;
   border-radius: 0;
 }
+.list .progress {
+  margin-top: 5px;
+}
+.list .delete-btn,
+.list .toggle {
+  font-size: 24px;
+  line-height: 12px;
+}
 nav .breadcrumbs {
   margin: 10px;
 }

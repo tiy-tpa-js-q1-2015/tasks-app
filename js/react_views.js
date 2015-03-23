@@ -246,7 +246,7 @@
     render: function() {
       var d = this.props.model.toJSON()
       return (
-        React.createElement("div", React.__spread({className: "task item"},  this.props), 
+        React.createElement("div", {className: "task item", onClick: this.props.onClick}, 
           React.createElement("span", {className: "item-title"}, d.name), 
           React.createElement(views.DeleteButton, {
             confirm: "This will delete all milestones for this task.", 
